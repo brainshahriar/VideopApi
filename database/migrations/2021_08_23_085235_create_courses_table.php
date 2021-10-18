@@ -19,6 +19,8 @@ class CreateCoursesTable extends Migration
             $table->integer('main_category_id');
             $table->string('course_image');
             $table->string('course_title');
+            $table->string('preview_id')->nullable();
+            $table->integer('video_type')->nullable();
             $table->integer('regular_price');
             $table->integer('sale_price');
             $table->boolean('status')->default(1);

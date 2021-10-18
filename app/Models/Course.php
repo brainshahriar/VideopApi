@@ -30,7 +30,7 @@ class Course extends Model
 
      return $this->hasMany(Section::class);
     }
-    public function lessons(){
+    public function lessons(){ 
 
      return $this->hasMany(Lesson::class,'course_id','id');
     }

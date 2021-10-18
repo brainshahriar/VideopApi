@@ -42,6 +42,8 @@ class CourseController extends Controller
     $course_title=$request->course_title;
     $regular_price=$request->regular_price;
     $sale_price=$request->sale_price;
+    $preview_id=$request->preview_id;
+    $video_type=$request->video_type;
 
     $status = $request->status;
 
@@ -67,6 +69,9 @@ class CourseController extends Controller
     $course->course_title=$course_title;
     $course->regular_price=$regular_price;
     $course->sale_price=$sale_price;
+    $course->preview_id=$preview_id;
+
+    $course->video_type=$video_type;
 
     $course->status= $status;
 
