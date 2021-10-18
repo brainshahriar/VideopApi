@@ -304,7 +304,7 @@ class CourseController extends Controller
 
     $course_categories= CourseCategory::all();
     $main_categories= MainCategory::all();
-    //$course = Course::find($id);
+    //$course = Course::find($id); 
 
     $course_details= CourseOverview::where('course_id',$id)->get();
     //$sections= Section::where('course_id',$id)->get();

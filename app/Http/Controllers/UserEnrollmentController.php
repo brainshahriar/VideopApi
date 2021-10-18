@@ -14,7 +14,7 @@ use Auth;
 use App\Models\CourseReview;
 use App\Models\Trainer;
 
-class UserEnrollmentController extends Controller
+class UserEnrollmentController extends Controller 
 {
   public function __construct()
   {
@@ -76,6 +76,8 @@ class UserEnrollmentController extends Controller
             ->get()->pluck('vimeo_id');
         //dd($course);
     }
+
+    
 
 
 }

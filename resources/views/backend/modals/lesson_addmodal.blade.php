@@ -51,8 +51,8 @@
                         <select class="form-control" name="preview">
                             <option label="Choose"></option>
 
-                            <option value="Preview">Preview</option>
-                            <option value="Not Preview">Not Preview</option>
+                            <option value="1">Preview</option>
+                            <option value="0">Not Preview</option>
                         </select>
                     </div>
                     <div class="form-group">

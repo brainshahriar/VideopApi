@@ -1,3 +1,4 @@
+
 <div class="sticky-header navbar-expand-lg">
         <div class="menu-bar clearfix">
             <div class="container clearfix">
@@ -17,9 +18,9 @@
                   <span></span>
                 </button>
 
-            <li><a href="https://www.facebook.com/globalskillsbd" class="btn-link"><i class="fa fa-facebook"></i></a></li>
-            <li><a href="https://twitter.com/gsdabd?lang=en" class="btn-link"><i class="fa fa-twitter"></i></a></li>
-            <li><a href="https://www.linkedin.com/company/globalskillsbd" class="btn-link"><i class="fa fa-linkedin"></i></a></li>
+            <li><a href="https://www.facebook.com/globalskillsbd" class="btn-link"><i class="fab fa-facebook"></i></a></li>
+            <li><a href="https://twitter.com/gsdabd?lang=en" class="btn-link"><i class="fab fa-twitter"></i></a></li>
+            <li><a href="https://www.linkedin.com/company/globalskillsbd" class="btn-link"><i class="fab fa-linkedin"></i></a></li>
             <!-- Search Button ==== -->
             <li class="search-btn"><button id="quik-search-btn" type="button" class="btn-link"><i class="fa fa-search"></i></button></li>
             <li><a href="{{route('carts')}}" class="btn-link"><i class="fa fa-cart-plus fa-2x"></i>
@@ -85,9 +86,9 @@
 
         </ul>
         <div class="nav-social-link">
-          <a href="javascript:;"><i class="fa fa-facebook"></i></a>
-          <a href="javascript:;"><i class="fa fa-google-plus"></i></a>
-          <a href="javascript:;"><i class="fa fa-linkedin"></i></a>
+          <a href="javascript:;"><i class="fas fa-facebook"></i></a>
+          <a href="javascript:;"><i class="fas fa-google-plus"></i></a>
+          <a href="javascript:;"><i class="fas fa-linkedin"></i></a>
         </div>
                 </div>
                 <div class="col-md-6 offset-md-2" style="padding: 5px" >

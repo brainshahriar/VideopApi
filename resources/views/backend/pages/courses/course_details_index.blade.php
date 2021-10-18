@@ -2,6 +2,9 @@
 
 
 @section('content')
+
+    
+
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
   .img:hover {
@@ -53,7 +56,7 @@
     <?php
     $course_categories= App\Models\CourseCategory::all();
     $main_categories= App\Models\MainCategory::all();
-
+  
 
 
 
@@ -273,6 +276,19 @@
 
 
                                          <strong><i class="fas fa-play-circle"></i> {{$lesson->lesson_title}}</strong>
+                                         @if($lesson->preview==1)
+                                         @if($lesson->video_type=='Vimeo')
+                                         <a class="video-play1" data-video-id="{{ $lesson->vimeo_id }}" data-channel="vimeo">
+                                          <button>Preview</button>
+                                         </a>
+                                          @else
+                                          <a class="video-play1" data-video-url="{{ $lesson->youtube_url }}" data-channel="url">
+                                            <button>Preview</button>
+                                           </a>
+                                           @endif
+                                           @else
+                                           
+                                           @endif
                                         </div>
                                     <div class="col">
 

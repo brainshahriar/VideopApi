@@ -38,6 +38,7 @@
 <script type="text/javascript" src="{{ asset('common' )}}/jquery-video-modal.min.js"></script>
 <script>
 	$(".video-play").modalVideo();
+	$(".video-play1").modalVideo();
 </script>
 
 
@@ -62,7 +63,7 @@
 			break;
 	}
 @endif
-</script>
+</scrip>
 
 
 
