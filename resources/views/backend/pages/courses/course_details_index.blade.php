@@ -27,6 +27,10 @@
   color:red;
 
 }
+.icn{
+  margin-left:-7%;
+  color:green;
+}
 </style>
 
 <!-- Content -->
@@ -85,7 +89,7 @@
           <div class="course-detail-bx">
            
                 
-        @if($course->video_type=="youtube")
+        @if($course->video_type==0)
             <div class="preview-video-box">
               <a class="video-play" data-video-id="{{ $course->preview_id }}">
               
@@ -284,23 +288,28 @@
                                       <div class="curriculum-list-box">
                                         <div class="row">
 
-                                      <div class="col">
+                                      <div class="col-sm-10">
 
 
                                          <strong><i class="fas fa-play-circle"></i> {{$lesson->lesson_title}}</strong>
-                                         @if($lesson->preview==1)
-                                         @if($lesson->video_type=='Vimeo')
-                                         <a class="video-play1" data-video-id="{{ $lesson->vimeo_id }}" data-channel="vimeo">
-                                          <button>Preview</button>
-                                         </a>
-                                          @else
+                   
+                                      
+                                        </div>
+                                        <div class="col-sm-2">
+                                          @if($lesson->preview==1)
+                                          @if($lesson->video_type=="Youtube")
+
                                           <a class="video-play1" data-video-url="{{ $lesson->youtube_url }}" data-channel="url">
-                                            <button>Preview</button>
-                                           </a>
-                                           @endif
+                                            <strong><i  class="fas fa-play-circle fa-2x icn" title="Play"></i></strong>
+                                            </a>                             
                                            @else
-                                           
-                                           @endif
+                                           <a class="video-play1" data-video-id="{{ $lesson->vimeo_id }}" data-channel="vimeo">
+                                            <strong><i class="fas fa-play-circle fa-2x icn"  title="Play"></i></strong>
+                                          </a>
+                                            @endif
+                                            @else
+                                          <i class="fas fa-lock" title="Lock"></i>
+                                          @endif
                                         </div>
                                     <div class="col">
 
@@ -349,8 +358,8 @@
               <h6>{{$item->name}}</h6>
               <span>{{ $item->designation }}</span>
               <ul class="list-inline m-tb10">
-                <li><a href="{{ $item->facebook_profile }}" class="btn sharp-sm facebook"><i class="fa fa-facebook"></i></a></li>
-                <li><a href="{{ $item->linkdin_profile }}" class="btn sharp-sm linkedin"><i class="fa fa-linkedin"></i></a></li>
+                <li><a href="{{ $item->facebook_profile }}" class="btn sharp-sm facebook"><i class="fab fa-facebook"></i></a></li>
+                <li><a href="{{ $item->linkdin_profile }}" class="btn sharp-sm linkedin"><i class="fab fa-linkedin"></i></a></li>
               </ul>
               <p class="m-b0">{!! $item->biography !!}</p>
             </div>
