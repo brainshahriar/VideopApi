@@ -7,6 +7,12 @@
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
+  .img i {
+  top: 15%;
+  left: 50%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+}
   .img:hover {
   opacity: 1;
 }
@@ -14,7 +20,7 @@
   color:red;
 }
 .fa-youtube {
-  color:white;
+  color:#CA2128;
 
 }
 .fa-play-circle {
@@ -84,7 +90,10 @@
               <a class="video-play" data-video-id="{{ $course->preview_id }}">
               
                   <img src="{{asset("storage/courses/$course->course_image")}}" alt="" class="img-fluid">
-                  <i class="fab fa-youtube fa-4x" style ="position:relative; left:80px; top:-95px;"></i>
+                  <div class="img">
+                    <i class="fab fa-youtube fa-4x"></i>
+                  </div>
+                  
              
                   
               </a>
@@ -94,7 +103,10 @@
             <a class="video-play" data-video-id="{{ $course->preview_id }}" data-channel="vimeo">
              
                 <img src="{{asset("storage/courses/$course->course_image")}}" alt="" class="img-fluid">
-                <i class="fab fa-youtube fa-4x" style ="position:relative; left:80px; top:-95px;"></i>
+                <div class="img">
+                  <i class="fab fa-youtube fa-4x"></i>
+                </div>
+              
             </a>
         </div>
         @endif
