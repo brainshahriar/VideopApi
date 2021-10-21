@@ -303,3 +303,6 @@ middleware('is_admin');
 Route::post('/admin/home/classroom-updateTrainer', [TrainerController::class, 'updateTrainer1'])->name('update-trainer1')->
 middleware('is_admin');
 Route::get('/admin/classroom-trainer-delete/{id}', [TrainerController::class,'deleteTrainer1'])->middleware('is_admin');
+
+
+Route::get('certificate', [CourseController::class,'certificate'])->middleware('is_admin');

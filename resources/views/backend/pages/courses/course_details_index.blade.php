@@ -87,21 +87,33 @@
        <div class="row d-flex flex-row-reverse">
         <div class="col-lg-3 col-md-4 col-sm-12 m-b30">
           <div class="course-detail-bx">
-           
+
                 
         @if($course->video_type==0)
-            <div class="preview-video-box">
-              <a class="video-play" data-video-id="{{ $course->preview_id }}">
-              
-                  <img src="{{asset("storage/courses/$course->course_image")}}" alt="" class="img-fluid">
-                  <div class="img">
-                    <i class="fab fa-youtube fa-4x"></i>
-                  </div>
-                  
-             
-                  
+        <div class="preview-video-box">
+         
+              <a class="venobox" data-autoplay="true" data-vbtype="video" href="{{ $course->preview_id }}" data-gall="myGallery">
+                <img src="{{asset("storage/courses/$course->course_image")}}" alt="" class="img-fluid">
+                <div class="img">
+                  <i class="fab fa-youtube fa-4x"></i>
+                </div>
               </a>
-          </div>
+              @if(count($course->sections) > 0)
+              @foreach($course->sections as $section)
+              @if(count($section->lessons) > 0)
+              @foreach($section->lessons as $lesson)
+              @if($lesson->preview==1)
+              <a class="venobox" data-autoplay="true" data-vbtype="video" href="{{ $lesson->youtube_url }}" data-gall="myGallery"></a>
+              @endif
+              @endforeach
+              @endif
+              @endforeach
+              @endif
+
+
+        
+
+      </div>
           @else
           <div class="preview-video-box">
             <a class="video-play" data-video-id="{{ $course->preview_id }}" data-channel="vimeo">
@@ -298,8 +310,7 @@
                                         <div class="col-sm-2">
                                           @if($lesson->preview==1)
                                           @if($lesson->video_type=="Youtube")
-
-                                          <a class="video-play1" data-video-url="{{ $lesson->youtube_url }}" data-channel="url">
+                                          <a class="venobox" data-autoplay="true" data-vbtype="video" href="{{ $lesson->youtube_url }}" data-gall="myGallery">
                                             <strong><i  class="fas fa-play-circle fa-2x icn" title="Play"></i></strong>
                                             </a>                             
                                            @else

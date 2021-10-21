@@ -477,6 +477,11 @@ public function CourseInfo($id)
              return view ('frontend.pages.categorywisecourseshow',compact('course_categories','main_categories','course','lts_c'));
            }
 
+           public function certificate()
+           {
+             return view('certificate');
+           }
+
 
 
 }

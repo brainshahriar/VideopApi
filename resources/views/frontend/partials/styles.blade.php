@@ -22,3 +22,10 @@
 
 <link rel="stylesheet" href="{{ asset('common' )}}/modal-video.min.css">
 
+<link rel="stylesheet" href="{{ asset('common' )}}/modal-video.min.css">
+
+
+
+
+<link rel="stylesheet" href="{{ asset('venobox') }}/venobox/venobox.css" type="text/css" media="screen" />
+
