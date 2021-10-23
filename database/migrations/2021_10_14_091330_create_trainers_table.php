@@ -22,6 +22,7 @@ class CreateTrainersTable extends Migration
           $table->string('designation')->nullable();
           $table->string('facebook_profile')->nullable();
           $table->string('linkdin_profile')->nullable();
+          $table->string('signature')->nullable();
           $table->longText('biography')->nullable();
           $table->timestamps();
         });

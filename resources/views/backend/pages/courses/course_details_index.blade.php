@@ -27,6 +27,10 @@
   color:red;
 
 }
+.fa-clock {
+  color:red;
+
+}
 .icn{
   margin-left:-7%;
   color:green;
@@ -90,9 +94,9 @@
 
                 
         @if($course->video_type==0)
-        <div class="preview-video-box">
+        <div class="preview-video-box" >
          
-              <a class="venobox" data-autoplay="true" data-vbtype="video" href="{{ $course->preview_id }}" data-gall="myGallery">
+              <a  class="venobox" data-autoplay="true" data-vbtype="video" href="{{ $course->preview_id }}" data-gall="myGallery">
                 <img src="{{asset("storage/courses/$course->course_image")}}" alt="" class="img-fluid">
                 <div class="img">
                   <i class="fab fa-youtube fa-4x"></i>
@@ -256,6 +260,7 @@
               </div>
             </div>
           </div>
+
           <div class="m-b30" id="curriculum">
             <h4>Curriculum</h4>
 
@@ -293,35 +298,55 @@
                                   <ul>
                                     @if(count($section->lessons) > 0)
                                     @foreach($section->lessons as $lesson)
+                        <div class="curriculum-list-box">
+                          <div class="row">
+
+                        <div class="col-sm-8">
 
 
-
-
-                                      <div class="curriculum-list-box">
-                                        <div class="row">
-
-                                      <div class="col-sm-10">
-
-
-                                         <strong><i class="fas fa-play-circle"></i> {{$lesson->lesson_title}}</strong>
-                   
-                                      
-                                        </div>
-                                        <div class="col-sm-2">
-                                          @if($lesson->preview==1)
-                                          @if($lesson->video_type=="Youtube")
-                                          <a class="venobox" data-autoplay="true" data-vbtype="video" href="{{ $lesson->youtube_url }}" data-gall="myGallery">
-                                            <strong><i  class="fas fa-play-circle fa-2x icn" title="Play"></i></strong>
-                                            </a>                             
-                                           @else
-                                           <a class="video-play1" data-video-id="{{ $lesson->vimeo_id }}" data-channel="vimeo">
-                                            <strong><i class="fas fa-play-circle fa-2x icn"  title="Play"></i></strong>
-                                          </a>
-                                            @endif
-                                            @else
-                                          <i class="fas fa-lock" title="Lock"></i>
-                                          @endif
-                                        </div>
+                            <strong><i class="fas fa-play-circle"></i> {{$lesson->lesson_title}}</strong>
+                            @php
+                            $seconds = $lesson->duration;
+                            $H = floor($seconds / 3600);
+                            $i = ($seconds / 60) % 60;
+                            $s = $seconds % 60;
+                           @endphp  
+                            
+                          </div>
+                          <div class="col-sm-2">
+                          <div class="lessons-info">
+                              <span class="duration" data-toggle="tooltip" data-placement="top" title="Duration"><img src="{{ asset('images/clock1.gif')}}" alt="" style="height: 20px"></i>
+                                @php
+                                if($H==NULL)
+                                {
+                                echo sprintf("%02d:%02d", $i, $s);
+                                }
+                                else
+                                {
+                                echo sprintf("%02d:%02d:%02d", $H, $i, $s);
+                                }
+                                @endphp
+                  
+                          </div>
+                          
+                          </div>
+                          
+  
+                          <div class="col-sm-2">
+                            @if($lesson->preview==1)
+                            @if($lesson->video_type=="Youtube")
+                            <a class="venobox" data-autoplay="true" data-vbtype="video" href="{{ $lesson->youtube_url }}" data-gall="myNewGallery">
+                              <strong><i  class="fas fa-play-circle fa-2x icn" title="Play"></i></strong>
+                              </a>                             
+                              @else
+                              <a class="video-play1" data-video-id="{{ $lesson->vimeo_id }}" data-channel="vimeo">
+                              <strong><i class="fas fa-play-circle fa-2x icn"  title="Play"></i></strong>
+                            </a>
+                              @endif
+                              @else
+                            <i class="fas fa-lock" title="Lock"></i>
+                            @endif
+                          </div>
                                     <div class="col">
 
 
@@ -349,6 +374,7 @@
                         @endif
 
                       </div>
+
                     </div>
                   </div>
                 </div>

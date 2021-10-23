@@ -1,11 +1,11 @@
 <?php return array(
     'root' => array(
-        'pretty_version' => 'dev-master',
-        'version' => 'dev-master',
+        'pretty_version' => 'dev-main',
+        'version' => 'dev-main',
         'type' => 'project',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
-        'reference' => '96df8a619be2a6324812ef0250d2e843883ce539',
+        'reference' => 'c7ef0b7d16557a9c3792b8ec421b5defd8dafecf',
         'name' => 'laravel/laravel',
         'dev' => true,
     ),
@@ -397,6 +397,15 @@
                 0 => 'v8.64.0',
             ),
         ),
+        'intervention/image' => array(
+            'pretty_version' => '2.7.0',
+            'version' => '2.7.0.0',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../intervention/image',
+            'aliases' => array(),
+            'reference' => '9a8cc99d30415ec0b3f7649e1647d03a55698545',
+            'dev_requirement' => false,
+        ),
         'justinrainbow/json-schema' => array(
             'pretty_version' => '5.2.11',
             'version' => '5.2.11.0',
@@ -422,12 +431,12 @@
             'dev_requirement' => false,
         ),
         'laravel/laravel' => array(
-            'pretty_version' => 'dev-master',
-            'version' => 'dev-master',
+            'pretty_version' => 'dev-main',
+            'version' => 'dev-main',
             'type' => 'project',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
-            'reference' => '96df8a619be2a6324812ef0250d2e843883ce539',
+            'reference' => 'c7ef0b7d16557a9c3792b8ec421b5defd8dafecf',
             'dev_requirement' => false,
         ),
         'laravel/sail' => array(

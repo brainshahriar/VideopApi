@@ -10,7 +10,7 @@ use App\Models\ClassroomCourse;
 class Trainer extends Model
 {
     use HasFactory;
-      protected $table ="trainers";
+      protected $guarded=[];
 
       public function course(){
 
