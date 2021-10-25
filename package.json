@@ -22,6 +22,7 @@
         "sass-loader": "^11.0.1"
     },
     "dependencies": {
-        "@vimeo/player": "^2.16.0"
+        "@vimeo/player": "^2.16.0",
+        "sweetalert2": "^11.1.9"
     }
 }

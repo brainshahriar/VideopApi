@@ -19,7 +19,7 @@
     <div class="col-12">
       <div class="card">
         <div class="card-header">
-            <h4 class="card-title">Trainer</h4>
+            <h4 class="card-title">Trainer</h4> 
             <a href="#" class="btn btn-primary float-right" data-toggle="modal" data-target="#ClassroomTrainerAdd"><i class="fas fa-plus-circle"></i></a>
             @include('backend.modals.classroomtraineraddmodal')
           </div>

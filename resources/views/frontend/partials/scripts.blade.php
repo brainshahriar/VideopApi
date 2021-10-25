@@ -74,9 +74,16 @@
 			break;
 	}
 @endif
-</scrip>
+</script>
+<script type="text/javascript" src="{{ asset('common' )}}/jquery.form-validaton-min.js"></script>
+<script>
+    $.validate({
+        lang:'en'
+    });
+</script>
+<script src="{{ asset('backend') }}/lib/sweetalert/sweetalert.min.js"></script>
 
-
+<script src="{{ asset('backend') }}/lib/sweetalert/code.js"></script>
 
 
 <script src="{{ asset('js/jquery.scroller.js')}}"></script>

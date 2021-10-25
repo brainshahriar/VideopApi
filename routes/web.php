@@ -53,7 +53,11 @@ Route::get('/', [MasteringController::class,'index'])->name('home');
 
 //Contact us Route
 Route::get('/contact_us', [ContactUsController::class,'contact'])->name('contact');
-Route::post('/contact_us/store', [ContactUsController::class,'Store'])->name('store-contact');
+Route::post('/contact/store', [ContactUsController::class,'storeContact']);
+Route::get('read/contact', [ContactUsController::class,'contactRead'])->name('contact-us')->middleware('is_admin');
+Route::get('/admin/delete/{contactus_id}', [ContactUsController::class,'delete'])->middleware('is_admin');
+
+// Route::post('/contact_us/store', [ContactUsController::class,'Store'])->name('store-contact');
 Route::get('/about_us', [AboutController::class,'index'])->name('about');
 Route::get('/events', [EventController::class,'index'])->name('event');
 Route::get('/event_details/{id}', [EventController::class,'event_details']);

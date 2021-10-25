@@ -58,7 +58,7 @@
 
                         <div class="card-body">
                             <div class="accordion" id="accordionExample{{$section->id}}" data-toggle-hover="true">
-                                <div class="collapse-default">
+                                <div class="collapse-default"> 
                                     <div class="card">
                                         <div
                                             class="card-header"

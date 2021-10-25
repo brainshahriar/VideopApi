@@ -113,7 +113,7 @@
                                       </li>
                                     </ul>
                                 </li>
-                    <li>
+                    {{-- <li>
           <a href="#" class="ttr-material-button">
             <span class="ttr-icon"><i class="ti-email"></i></span>
                     <span class="ttr-label">Mailbox</span>
@@ -130,7 +130,7 @@
                       <a href="mailbox-read.html" class="ttr-material-button"><span class="ttr-label">Mail Read</span></a>
                     </li>
                   </ul>
-              </li>
+              </li> --}}
 
               <li>
                 <a href="{{ route('customer.review') }}" class="ttr-material-button" @yield('review')>
@@ -138,6 +138,12 @@
                           <span class="ttr-label">Review</span>
                         </a>
                     </li>
+                    <li>
+                  <a href="{{ route('contact-us') }}" class="ttr-material-button" @yield('review')>
+                    <span class="ttr-icon"><i class="ti-comments"></i></span>
+                            <span class="ttr-label">Contact Us</span>
+                          </a>
+                      </li>
 
       </ul>
       <!-- sidebar menu end -->

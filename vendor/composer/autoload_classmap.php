@@ -65,6 +65,7 @@ return array(
     'App\\Models\\ClassroomCourse' => $baseDir . '/app/Models/ClassroomCourse.php',
     'App\\Models\\ClassroomInfo' => $baseDir . '/app/Models/ClassroomInfo.php',
     'App\\Models\\ClassroomTrainer' => $baseDir . '/app/Models/ClassroomTrainer.php',
+    'App\\Models\\Contactus' => $baseDir . '/app/Models/Contactus.php',
     'App\\Models\\Course' => $baseDir . '/app/Models/Course.php',
     'App\\Models\\CourseCategory' => $baseDir . '/app/Models/CourseCategory.php',
     'App\\Models\\CourseOverview' => $baseDir . '/app/Models/CourseOverview.php',
