@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Contactus;
 use App\Mail\ContactMail;
+use Carbon\Carbon;
+
 
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Validator;
@@ -24,7 +26,19 @@ class ContactUsController extends Controller
         'email'=>$request->email,
         'phone'=>$request->phone,
         'message'=>$request->message,
+        'created_at'=>Carbon::now(),
       ]);
+      Mail::send('email',
+      [
+        'data'=>$request->message,
+        'email'=>$request->email,
+        'name'=>$request->name,
+        'phone'=>$request->phone,
+      ],function($message)use($request)
+      {
+        $message->to('globalskillsbd@gmail.com');
+        $message->subject('Contact Us');
+      });
       return response()->json($data);
    }
    public function contactRead()

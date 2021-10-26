@@ -29,6 +29,7 @@
                 <th>Email</th>
                 <th>Phone</th>
                 <th>Message</th>
+                <th>Report Date</th>
                 <th>Actions</th>
               </tr>
             </thead>
@@ -51,6 +52,7 @@
                     <textarea name="" id="" cols="30" disabled rows="2">{{ $row->message }}</textarea>
 
                 </td>
+                <td>{{ $row->created_at }}</td>
                 <td>
                   <a id="delete" href="/admin/delete/{{$row->id}}"><i class="fas fa-trash"></i></a>
                 </td>
