@@ -83,6 +83,14 @@
 
 
 
+@php
+$total_duration = $data;
+$H = floor($total_duration / 3600);
+$i = ($total_duration / 60) % 60;
+$s = $total_duration % 60; 
+@endphp 
+
+
 
 <div class="content-block">
         <!-- About Us -->
@@ -171,7 +179,21 @@
               <input type="hidden" name="course_id" value="{{$course->id}}">
 
               <button  class="btn">Add to Cart</button>
+           
+      
+            
             </form>
+            <br>
+            <span style="color: red"><strong>Total Duration : @php
+              if($H==NULL)
+              {
+              echo sprintf("%02d:%02d Hours", $i, $s);
+              }
+              else
+              {
+              echo sprintf("%02d:%02d:%02d Hours", $H, $i, $s);
+              }
+              @endphp</strong></span>
           </div>
           @endif
             <div class="teacher-bx">
@@ -309,9 +331,8 @@
                             $seconds = $lesson->duration;
                             $H = floor($seconds / 3600);
                             $i = ($seconds / 60) % 60;
-                            $s = $seconds % 60;
+                            $s = $seconds % 60;                 
                            @endphp  
-                            
                           </div>
                           <div class="col-sm-2">
                           <div class="lessons-info">
@@ -326,7 +347,7 @@
                                 echo sprintf("%02d:%02d:%02d", $H, $i, $s);
                                 }
                                 @endphp
-                  
+              
                           </div>
                           
                           </div>
@@ -382,6 +403,7 @@
 
 
           </div>
+
           <div class="" id="instructor">
           <h4>Instructor</h4>
 

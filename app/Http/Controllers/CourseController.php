@@ -299,7 +299,7 @@ class CourseController extends Controller
 
 
 
-  public function course_details_frontend($id)
+  public function course_details_frontend($id) 
   {
 
     $course_categories= CourseCategory::all();
@@ -311,6 +311,7 @@ class CourseController extends Controller
     //$lessons= Lesson::where('course_id',$id)->get();
     $course= Course::with(['sections.lessons'])->where('id',$id)->first();
 
+    $data=Lesson::where('course_id',$id)->sum('duration');
 
     $enrolled= UserEnrollment::where('user_id',Auth::id())->where('course_id',$id)->first();
     $courseReview=CourseReview::with('user')->where('course_id',$id)->where('status','approve')->latest()->get();
@@ -320,7 +321,7 @@ class CourseController extends Controller
 
 
 
-    return view('/backend/pages/courses.course_details_index',compact('course_details','main_categories','course_categories','course','enrolled','courseReview','avgRating','trainer'));
+    return view('/backend/pages/courses.course_details_index',compact('course_details','main_categories','course_categories','course','enrolled','courseReview','avgRating','trainer','data'));
   }
 
   public function StoreSection(Request $request)

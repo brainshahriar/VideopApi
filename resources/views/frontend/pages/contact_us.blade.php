@@ -170,7 +170,7 @@
       }
     })
   }
-  //add to cart
+
   
 </script>
 
