@@ -48,16 +48,18 @@
               </div>
 
               <div id="faq1{{ $item->id }}" class="acod-body collapse">
+                <br>
+                <div class="acod-content">{!! $item->description !!}</div>
                 <div class="col-lg-7 col-md-12 heading-bx p-lr">
                   <br>
-             
-                    <div class="acod-content">{!! $item->description !!}</div>
-               
-                  <br>
+                  @if($item->video_url)            
                   <div class="video-bx">
                     <img src={{ asset($item->image) }} alt=""/>
                     <a  class="venobox popup-youtube video" data-autoplay="true" data-vbtype="video" href="{{ $item->video_url }}" data-gall="faqGallery"><i class="fa fa-play"></i></a>
                   </div>
+                  @else
+                  <img src={{ asset($item->image) }} alt=""/>
+                  @endif
                 </div>    
                   </div>
             </div>
@@ -72,7 +74,6 @@
                 </div>
                 <div class="icon-content">
                   <h5 class="ttr-tilte">Our Philosophy</h5>
-                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing.</p>
                 </div>
               </div>
             </div>
@@ -83,7 +84,6 @@
                 </div>
                 <div class="icon-content">
                   <h5 class="ttr-tilte">Kingster's Principle</h5>
-                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing.</p>
                 </div>
               </div>
             </div>
@@ -94,7 +94,6 @@
                 </div>
                 <div class="icon-content">
                   <h5 class="ttr-tilte">Key Of Success</h5>
-                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing.</p>
                 </div>
               </div>
             </div>
@@ -105,7 +104,6 @@
                 </div>
                 <div class="icon-content">
                   <h5 class="ttr-tilte">Our Philosophy</h5>
-                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing.</p>
                 </div>
               </div>
             </div>

@@ -51,14 +51,12 @@
                     {{$row->video_url}}
                 </td>
                 <td>
-                    {{ $row->image }}
+                    <img src="{{asset( $row->image) }}" alt="">
                 </td>
-          
-
                 <td>
-                    <a href="#" data-toggle="modal" data-target="#TrainerEdit{{$row->id}}"><i class="fas fa-edit"></i></a>
+                    <a href="#" data-toggle="modal" data-target="#FaqEdit{{$row->id}}"><i class="fas fa-edit"></i></a>
 
-                  <a  href="/admin/trainer-delete/{{$row->id}}" id="delete"><i class="fas fa-trash"></i></a>
+                  <a  href="/admin/delete-faq/{{$row->id}}" id="delete"><i class="fas fa-trash"></i></a>
                       {{-- @include('backend.modals.trainereditmodal') --}}
 
                 </td>

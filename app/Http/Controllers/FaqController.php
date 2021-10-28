@@ -41,5 +41,17 @@ class FaqController extends Controller
       );
       return Redirect()->back()->with($notification);
     }
+    public function deleteFaq($faq_id){
+
+      $faq = Faq::findOrFail($faq_id);
+      $img = $faq->image;
+      unlink($img);
+      Faq::findOrFail($faq_id)->delete();
+      $notification=array(
+       'message'=>'Delete Success',
+       'alert-type'=>'success'
+   );
+   return Redirect()->back()->with($notification);
+  }
 
 }
