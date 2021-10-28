@@ -310,3 +310,8 @@ Route::get('/admin/classroom-trainer-delete/{id}', [TrainerController::class,'de
 
 
 Route::get('certificate', [CourseController::class,'certificate'])->middleware('is_admin');
+
+
+
+//faqs admin
+Route::get('/admin/faqs', [FaqController::class,'create'])->name('faqs')->middleware('is_admin');

@@ -10,5 +10,9 @@ class FaqController extends Controller
     {
       return view('frontend.pages.faq');
     }
+    public function create()
+    {
+      return view('backend.pages.faq.create');
+    }
 
 }

@@ -72,6 +72,7 @@ return array(
     'App\\Models\\CourseReview' => $baseDir . '/app/Models/CourseReview.php',
     'App\\Models\\Currency' => $baseDir . '/app/Models/Currency.php',
     'App\\Models\\EventDetail' => $baseDir . '/app/Models/EventDetail.php',
+    'App\\Models\\Faq' => $baseDir . '/app/Models/Faq.php',
     'App\\Models\\Lesson' => $baseDir . '/app/Models/Lesson.php',
     'App\\Models\\MainCategory' => $baseDir . '/app/Models/MainCategory.php',
     'App\\Models\\Order' => $baseDir . '/app/Models/Order.php',
