@@ -3,16 +3,43 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Faq;
+use Image;
+use Carbon\Carbon;
 
 class FaqController extends Controller
 {
     public function index()
     {
-      return view('frontend.pages.faq');
+      $faqs=Faq::all();
+      return view('frontend.pages.faq',compact('faqs'));
     }
     public function create()
     {
-      return view('backend.pages.faq.create');
+      $faqs=Faq::all();
+      return view('backend.pages.faq.create',compact('faqs'));
+    }
+    public function store(Request $request)
+    {
+      $image = $request->file('image');
+      $name_gen=hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+      Image::make($image)->save('uploads/faq/'.$name_gen);
+      $save_url = 'uploads/faq/'.$name_gen;
+
+      Faq::insert([
+
+          'subject' => $request->subject,
+          'description' => $request->description,
+          'video_url' => $request->video_url,
+          'image' => $save_url,
+          'created_at' => Carbon::now(),
+      ]);
+
+      $notification=array(
+          'message'=>'Faqs Upload Success',
+          'alert-type'=>'success'
+      );
+      return Redirect()->back()->with($notification);
     }
 
 }

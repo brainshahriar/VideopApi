@@ -36,58 +36,30 @@
               </tr>
             </thead>
             <tbody>
-              {{-- @foreach ($trainer as $row)
+               @foreach ($faqs as $row)
 
               <tr>
-                <td>{{$row->id}}</td>
+                <td>{{$loop->index+1}}</td>
                 <td class="user_name">
-                    {{$row->name}}
+                    {{$row->subject}}
+                </td>
+                <td>
+                    <textarea name="" id="" cols="30" disabled rows="2">{!!$row->description !!}</textarea>
+                </td>
 
+                <td>
+                    {{$row->video_url}}
                 </td>
                 <td>
-                  {{ $row->course->course_title }}
+                    {{ $row->image }}
                 </td>
-
-                <td>
-                    {{$row->designation}}
-                </td>
-                <td>
-                    {{ $row->facebook_profile }}
-                </td>
-                <td>
-                    {{ $row->linkdin_profile }}
-                </td>
-                <td>
-                    <textarea name="" id="" cols="30" disabled rows="2">{{ $row->biography }}</textarea>
-                </td>
-                <td>
-                    <div class="avatar-group">
-                      <div
-                        data-toggle="tooltip"
-                        data-popup="tooltip-custom"
-                        data-placement="top"
-                        title=""
-                        class="avatar pull-up my-0"
-                        data-original-title=""
-                      >
-                        <img
-                          src="{{asset('storage/trainer/' .$row->image)}}"
-                          alt="image"
-                          height="50"
-                          width="50"
-
-                        />
-                      </div>
-
-
-                    </div>
-                </td>
+          
 
                 <td>
                     <a href="#" data-toggle="modal" data-target="#TrainerEdit{{$row->id}}"><i class="fas fa-edit"></i></a>
 
                   <a  href="/admin/trainer-delete/{{$row->id}}" id="delete"><i class="fas fa-trash"></i></a>
-                      @include('backend.modals.trainereditmodal')
+                      {{-- @include('backend.modals.trainereditmodal') --}}
 
                 </td>
 
@@ -96,7 +68,7 @@
 
               </tr>
 
-              @endforeach --}}
+              @endforeach
             </tbody>
           </table>
         </div>

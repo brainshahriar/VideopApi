@@ -38,28 +38,41 @@
             <h2 class="m-b10 title-head">Asked <span> Questions</span></h2>
           </div>
           <div class="ttr-accordion m-b30 faq-bx" id="accordion1">
+            @foreach ($faqs as $item)
+
             <div class="panel">
               <div class="acod-head">
                 <h6 class="acod-title">
-                  <a data-toggle="collapse" href="#faq1" class="collapsed" data-parent="#faq1">
-                    How to sign up log in enroll pay change password upload image </a> </h6>
+                  <a data-toggle="collapse" href="#faq1{{ $item->id }}" class="collapsed" data-parent="#faq1">       
+                    {{ $item->subject }} </a> </h6>
               </div>
-              <div id="faq1" class="acod-body collapse">
-                <br>
+
+              <div id="faq1{{ $item->id }}" class="acod-body collapse">
                 <div class="col-lg-7 col-md-12 heading-bx p-lr">
+                  <br>
+             
+                    <div class="acod-content">{!! $item->description !!}</div>
+               
+                  <br>
                   <div class="video-bx">
-                    <img src={{ asset('images/about/pic1.jpg') }} alt=""/>
-                    <a href="https://www.youtube.com/watch?v=slyY95bNF8E" class="popup-youtube video"><i class="fa fa-play"></i></a>
+                    <img src={{ asset($item->image) }} alt=""/>
+                    <a  class="venobox popup-youtube video" data-autoplay="true" data-vbtype="video" href="{{ $item->video_url }}" data-gall="faqGallery"><i class="fa fa-play"></i></a>
                   </div>
                 </div>    
-                    </div>
+                  </div>
             </div>
+                            
+            @endforeach
           </div>
           <div class="row">
             <div class="col-lg-6 col-md-6 col-sm-6 m-b30">
               <div class="feature-container">
                 <div class="feature-md text-white m-b20">
                   <a href="#" class="icon-cell"><img src="{{ asset('images/icon/icon1.png')}}" alt=""></a>
+                </div>
+                <div class="icon-content">
+                  <h5 class="ttr-tilte">Our Philosophy</h5>
+                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing.</p>
                 </div>
               </div>
             </div>
@@ -68,7 +81,10 @@
                 <div class="feature-md text-white m-b20">
                   <a href="#" class="icon-cell"><img src="{{ asset('images/icon/icon2.png')}}" alt=""></a>
                 </div>
-
+                <div class="icon-content">
+                  <h5 class="ttr-tilte">Kingster's Principle</h5>
+                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing.</p>
+                </div>
               </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 m-b30">
@@ -76,7 +92,10 @@
                 <div class="feature-md text-white m-b20">
                   <a href="#" class="icon-cell"><img src="{{ asset('images/icon/icon3.png')}}" alt=""></a>
                 </div>
-    
+                <div class="icon-content">
+                  <h5 class="ttr-tilte">Key Of Success</h5>
+                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing.</p>
+                </div>
               </div>
             </div>
             <div class="col-lg-6 col-md-6 col-sm-6 m-b30">
@@ -84,7 +103,10 @@
                 <div class="feature-md text-white m-b20">
                   <a href="#" class="icon-cell"><img src="{{ asset('images/icon/icon4.png')}}" alt=""></a>
                 </div>
- 
+                <div class="icon-content">
+                  <h5 class="ttr-tilte">Our Philosophy</h5>
+                  <p>Lorem ipsum dolor sit amet, consectetuer adipiscing.</p>
+                </div>
               </div>
             </div>
           </div>

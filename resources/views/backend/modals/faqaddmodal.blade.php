@@ -8,7 +8,7 @@
           </button>
         </div>
         <div class="modal-body">
-          <form action="{{route('add-trainer')}}" method="POST" enctype="multipart/form-data">
+          <form action="{{route('store')}}" method="POST" enctype="multipart/form-data">
             @csrf
               <div class="form-group">
                 <label for="classroom_course_title" >Subject</label>
