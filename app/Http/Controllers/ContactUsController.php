@@ -36,7 +36,7 @@ class ContactUsController extends Controller
         'phone'=>$request->phone,
       ],function($message)use($request)
       {
-        $message->to('globalskillsbd@gmail.com');
+        $message->to('shahriarmehedi94@gmail.com');
         $message->subject('Contact Us');
       });
       return response()->json($data);

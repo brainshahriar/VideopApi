@@ -101,7 +101,6 @@
                 </div>
               </div>
             </div>
-
             <div class="col-lg-12">
               <button name="submit" type="submit" value="Submit" class="btn button-md" onclick="addData()"> Send Message</button>
             </div>

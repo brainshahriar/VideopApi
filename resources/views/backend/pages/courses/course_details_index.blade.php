@@ -177,11 +177,7 @@ $s = $total_duration % 60;
             <form class="hidden" action="{{route('add-carts')}}" method="post">
               @csrf
               <input type="hidden" name="course_id" value="{{$course->id}}">
-
-              <button  class="btn">Add to Cart</button>
-           
-      
-            
+              <button  class="btn">Add to Cart</button>      
             </form>
             <br>
             <span style="color: red"><strong>Total Duration : @php
