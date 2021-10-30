@@ -145,7 +145,7 @@
                           </a>
                       </li>
                       <li>
-                        <a href="{{ route('faqs') }}" class="ttr-material-button" @yield('review')>
+                        <a href="{{ route('faqs') }}" class="ttr-material-button" @yield('faq')>
                           <span class="ttr-icon"><i class="ti-comments"></i></span>
                                   <span class="ttr-label">FaQs</span>
                                 </a>
