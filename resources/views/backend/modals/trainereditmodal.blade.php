@@ -12,7 +12,6 @@
             @csrf
             <input type="hidden" name="id" value="{{$row->id}}">
             <input type="hidden" name="old_image" value="{{ $row->image }}">
-            <input type="hidden" name="old_image1" value="{{ $row->signature }}">
 
               <div class="form-group">
                 <label for="classroom_course_title" >Name</label>
@@ -61,15 +60,39 @@
                   <label for="exampleFormControlFile1">Image</label>
                     <input  type="file" name="image" class="form-control-file" id="image" >
                   </div>
-                   <div class="form-group">
-                    <label class="form-control-label">Signature: <span class="tx-danger">*</span></label>
-                    <input class="form-control" type="file" name="signature" >           
-                  </div> 
 
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                     <button type="submit" class="btn btn-primary">Save changes</button>
         </div>
+          </form>
+
+          <form action="{{ route('update-signature') }}" method="POST" enctype="multipart/form-data">
+            @csrf
+            <input type="hidden" name="id" value={{ $row->id }}>
+            <input type="hidden" name="old_image" value="{{ $row->signature }}">
+            
+          <div class="row md-sm" style="margin-top=30px">           
+              <div class="col-md-3">
+              <div class="card">
+                <img  src="{{ asset($row->signature) }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <p class="card-text">
+                    <div class="form-group">
+                        <label class="form-control-label">Change Signature: <span class="tx-danger">*</span></label>
+                        <input class="form-control" type="file" name="signature"  onchange="Sig(this)" data-validation="required">
+                      <img src="" id="mainThmb">
+                      </div>
+                  </p>
+                </div>
+    
+              </div>
+            </div>
+                                 
+          </div>
+          <div class="form-layout-footer mt-3">
+            <button class="btn btn-info mg-r-5" type="submit" style="cursor: pointer;">Update Image</button>      
+          </div>        
           </form>
       </div>
     </div>
@@ -80,5 +103,18 @@
       $('#bio').summernote();
     });
     </script>
+
+<script>
+  function Sig(input){
+    if (input.files && input.files[0]) {
+      var reader = new FileReader();
+      reader.onload = function(e){
+          $('#mainThmb').attr('src',e.target.result).width(80)
+                .height(80);
+      };
+      reader.readAsDataURL(input.files[0]);
+    }
+  }
+</script>
 
   @endpush

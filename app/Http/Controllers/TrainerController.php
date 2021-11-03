@@ -60,19 +60,18 @@ class TrainerController extends Controller
 
         $trainer_id = $request->id;
         $old_img = $request->old_image;
-        $old_img1 = $request->old_image1;
  
-        if ($request->file('image') || $request->file('signature')) {
+        if ($request->file('image')) {
             unlink($old_img);
-            unlink($old_img1);
+    
              $image = $request->file('image');
-             $image1 = $request->file('signature');
+   
              $name_gen=hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
-             $name_gen1=hexdec(uniqid()).'.'.$image1->getClientOriginalExtension();
-             Image::make($image)->resize(166,110)->save('uploads/trainer/'.$name_gen);
-             Image::make($image1)->resize(166,110)->save('uploads/trainer/'.$name_gen1);
+     
+             Image::make($image)->save('uploads/trainer/'.$name_gen);
+
              $save_url = 'uploads/trainer/'.$name_gen;
-             $save_url1 = 'uploads/trainer/'.$name_gen1;
+   
  
              Trainer::findOrFail($trainer_id)->update([
                 'name' => $request->name,
@@ -82,7 +81,6 @@ class TrainerController extends Controller
                 'linkdin_profile' => $request->linkdin_profile,
                 'biography' => $request->biography,
                 'image' => $save_url,
-                'signature' => $save_url1,
                  'updated_at' => Carbon::now(),
              ]);
  
@@ -112,6 +110,26 @@ class TrainerController extends Controller
     }
 
 
+    public function signatureUpdate(Request $request)
+    {
+        $trainer_id = $request->id;
+        $old_img = $request->old_image;
+        unlink($old_img);
+        $image = $request->file('signature');
+        $name_gen=hexdec(uniqid()).'.'.$image->getClientOriginalExtension();
+        Image::make($image)->save('uploads/trainer/'.$name_gen);
+        $save_url = 'uploads/trainer/'.$name_gen;
+
+        Trainer::findOrFail($trainer_id)->update([
+            'signature' => $save_url,
+             'updated_at' => Carbon::now(),
+         ]);
+        $notification=array(
+            'message'=>'Course Thambnail Update Success',
+            'alert-type'=>'success'
+        );
+        return Redirect()->back()->with($notification);
+    }
     public function deleteTrainer($trainer_id){
 
         $trainer = Trainer::findOrFail($trainer_id);

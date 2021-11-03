@@ -73,7 +73,7 @@
                                     <a href="#"  onclick="return play('{{(strtolower($lesson->video_type)  == 'youtube')?$lesson->youtube_url : $lesson->vimeo_id}}','{{$lesson->video_type}}');" class="font-weight-bold" id="" >
                                     {{$loop->index+1}}.    {{$lesson->lesson_title}} <br> <span></span></a>
                                     @if($lesson->files)
-                                    <i class="fas fa-file-pdf" style="color: red"> </i> <a href="{{asset("storage/courses/admin/courses/files/$lesson->files")}}" target="_blank">Open File!</a>
+                                    <i class="fas fa-file-pdf" style="color: red"> </i> <a href="{{asset("storage/courses/admin/courses/files/$lesson->files")}}" target="_blank" title="File">Open File!</a>
                                     @else
                                     @endif
                                 </ul>

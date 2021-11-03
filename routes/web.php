@@ -300,6 +300,10 @@ middleware('is_admin');
 Route::get('/admin/trainer-delete/{id}', [TrainerController::class,'deleteTrainer'])->middleware('is_admin');
 
 
+Route::post('/admin/home/imageupdate', [TrainerController::class, 'signatureUpdate'])->name('update-signature')->
+middleware('is_admin');
+
+
 //trainer classroom
 Route::get('/admin/classroom-trainer-list', [TrainerController::class,'create1'])->name('trainer-classroom')->middleware('is_admin');
 Route::post('/admin/home/classroom-addTrainer', [TrainerController::class, 'addTrainer1'])->name('add-trainer1')->
