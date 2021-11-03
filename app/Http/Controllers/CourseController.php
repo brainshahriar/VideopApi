@@ -319,8 +319,6 @@ class CourseController extends Controller
     $avgRating = number_format($rating,1);
     $trainer= Trainer::where('course_id',$id)->get();
 
-
-
     return view('/backend/pages/courses.course_details_index',compact('course_details','main_categories','course_categories','course','enrolled','courseReview','avgRating','trainer','data'));
   }
 
@@ -401,8 +399,6 @@ class CourseController extends Controller
             $files,
             $filename
         );
-
-
     }
 
     $lessons = new Lesson();

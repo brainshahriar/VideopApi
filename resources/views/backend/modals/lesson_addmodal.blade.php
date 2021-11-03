@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="form-group">
-                        <label for="custom select">Preview</label>
+                        <label for="custom select">Preview</label> 
                         <select class="form-control" name="preview">
                             <option label="Choose"></option>
 
