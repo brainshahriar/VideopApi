@@ -64,26 +64,27 @@
                                                 aria-labelledby="heading{{$section->id}}"
                                                 data-parent="#accordionExample{{$section->id}}"
                                             >
-                                                <div class="card-body">
-                                                    <div id="thumbs">
-                                                        <ul>
-                                                            @if(count($section->lessons) > 0)
-                                                                @foreach($section->lessons as $lesson)
-                                                                    <ul>
-                                                                        <a href="#"  onclick="return play('{{(strtolower($lesson->video_type)  == 'youtube')?$lesson->youtube_url : $lesson->vimeo_id}}','{{$lesson->video_type}}');" class="font-weight-bold" id="" >
-                                                                        {{$loop->index+1}}.    {{$lesson->lesson_title}} <br> <span></span></a>
- <iframe src="{{ asset('courses/admin/courses/files')}}" frameborder="0" style="width:100%;min-height:640px;"></iframe>                                                          
-{{ $lesson->files }}
+            <div class="card-body">
+                <div id="thumbs">
+                    <ul>
+                        @if(count($section->lessons) > 0)
+                            @foreach($section->lessons as $lesson)
+                                <ul>
+                                    <a href="#"  onclick="return play('{{(strtolower($lesson->video_type)  == 'youtube')?$lesson->youtube_url : $lesson->vimeo_id}}','{{$lesson->video_type}}');" class="font-weight-bold" id="" >
+                                    {{$loop->index+1}}.    {{$lesson->lesson_title}} <br> <span></span></a>
+                                    @if($lesson->files)
+                                    <i class="fas fa-file-pdf" style="color: red"> </i> <a href="{{asset("storage/courses/admin/courses/files/$lesson->files")}}" target="_blank">Open File!</a>
+                                    @else
+                                    @endif
+                                </ul>
+                            @endforeach
+                        @endif
+                    </ul>
+                </div>
 
-                                                                    </ul>
-                                                                @endforeach
-                                                            @endif
-                                                        </ul>
-                                                    </div>
-
-                                                </div>
-                                            </div>
-                                        </div>
+            </div>
+        </div>
+    </div>
                                     @endforeach
                                 @endif
                             </div>
