@@ -79,8 +79,9 @@
                                         <strong><i  class="fas fa-play-circle" title="Play"></i></strong> {{$lesson->lesson_title}}
                                     </a>
                                       @endif
+                                      <br>
                                     @if($lesson->files)
-                                    <i class="fas fa-file-pdf" style="color: red"> </i> <a href="{{asset("storage/courses/admin/courses/files/$lesson->files")}}" target="_blank" title="File">Open File!</a>
+                                    <i class="fas fa-file-pdf" style="color: red"></i> <a href="{{asset("storage/courses/admin/courses/files/$lesson->files")}}" target="_blank" title="{{$lesson->lesson_title}} File">{{$lesson->lesson_title}} File</a>
                                     @else
                                     @endif
                                 </ul>
@@ -106,15 +107,33 @@
 
     <div class="col-lg-8 col-md-8 col-sm-12">
         <div class="courses-post">
-            <div class="ttr-post-media media-effect">
+            <div class="video-bx">
+                <img src="{{asset("storage/courses/$course->course_image")}}" alt=""/>
 
+                @if(count($course->sections) > 0)
+                @foreach($course->sections as $section)
+                    @if(count($section->lessons) > 0)
+                    @foreach($section->lessons as $lesson)
+                    @if($course->video_type==0)
+                    <ul> 
+                        
+                        <a class="venobox popup-youtube video" data-autoplay="true" data-vbtype="video" href="{{ $course->preview_id }}"><i class="fa fa-play"></i></a>                              
+              
+                    </ul>
+                    @else
+                    <ul>
+                        <a class="popup-youtube video video-play1" data-video-id="{{ $course->preview_id }}" data-channel="vimeo" href="#">
+                            <i class="fa fa-play"></i>
+                            </a>
+                    </ul>
+           
+                      @endif
+                @endforeach
+                @endif
+                @endforeach
+                @endif
 
-                <div id="player"></div>
-
-                <iframe id="iframe" src="" width="700" height="400"
-                        allowfullscreen  allow="autoplay"></iframe>
-
-            </div>
+                       </div>
 
             <div class="ttr-post-info">
                 <div class="ttr-post-title">
