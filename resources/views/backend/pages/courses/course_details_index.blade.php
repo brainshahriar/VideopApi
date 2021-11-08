@@ -85,7 +85,7 @@
 
 @php
 $total_duration = $data;
-$H = floor($total_duration / 3600);
+$H = floor($total_duration / 3600); 
 $i = ($total_duration / 60) % 60;
 $s = $total_duration % 60; 
 @endphp 

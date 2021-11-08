@@ -22,11 +22,7 @@
                   <option label="Choose Course"></option>
                   <?php foreach ($course as $item): ?>
                     <option value="{{$item->id}}">{{$item->course_title}}</option>
-
                   <?php endforeach; ?>
-
-
-
 
                 </select>
               </div>

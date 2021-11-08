@@ -48,7 +48,6 @@
                 <td>{{$row->id}}</td>
                 <td class="user_name">
                     {{$row->name}}
-
                 </td>
                 <td>
                   {{ $row->course->course_title }}

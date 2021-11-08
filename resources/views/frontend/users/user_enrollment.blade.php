@@ -59,7 +59,7 @@
                                             </div>
 
                                             <div
-                                                id="collapse{{$section->id}}"
+                                                id="collapse{{$section->id}}" 
                                                 class="collapse show"
                                                 aria-labelledby="heading{{$section->id}}"
                                                 data-parent="#accordionExample{{$section->id}}"
@@ -69,9 +69,16 @@
                     <ul>
                         @if(count($section->lessons) > 0)
                             @foreach($section->lessons as $lesson)
-                                <ul>
-                                    <a href="#"  onclick="return play('{{(strtolower($lesson->video_type)  == 'youtube')?$lesson->youtube_url : $lesson->vimeo_id}}','{{$lesson->video_type}}');" class="font-weight-bold" id="" >
-                                    {{$loop->index+1}}.    {{$lesson->lesson_title}} <br> <span></span></a>
+                                <ul> 
+                                    @if($lesson->video_type=="Youtube")
+                                    <a class="venobox" data-autoplay="true" data-vbtype="video" href="{{ $lesson->youtube_url }}" data-gall="enrollGallery">
+                                        <strong><i  class="fas fa-play-circle" title="Play"></i></strong> {{$lesson->lesson_title}}
+                                      </a>                             
+                                      @else
+                                      <a class="video-play1" data-video-id="{{ $lesson->vimeo_id }}" data-channel="vimeo" href="#">
+                                        <strong><i  class="fas fa-play-circle" title="Play"></i></strong> {{$lesson->lesson_title}}
+                                    </a>
+                                      @endif
                                     @if($lesson->files)
                                     <i class="fas fa-file-pdf" style="color: red"> </i> <a href="{{asset("storage/courses/admin/courses/files/$lesson->files")}}" target="_blank" title="File">Open File!</a>
                                     @else
