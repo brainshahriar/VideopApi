@@ -2,6 +2,15 @@
 
 
 @section('content')
+
+<style>
+    .active{
+    color:red;
+    font-size:15px;
+    }
+</style>
+
+
 <div class="page-banner ovbl-dark" style="background-image:url({{ asset('images/banner/banner2.jpg')}});">
 <div class="container">
 <div class="page-banner-entry">
@@ -63,27 +72,33 @@
                                                 class="collapse show"
                                                 aria-labelledby="heading{{$section->id}}"
                                                 data-parent="#accordionExample{{$section->id}}"
-                                            >
-            <div class="card-body">
-                <div id="thumbs">
-                    <ul>
+                                                 >
+                                    <div class="card-body">
+                                        <div id="thumbs">
+                                            <ul>
                         @if(count($section->lessons) > 0)
                             @foreach($section->lessons as $lesson)
                                 <ul> 
                                     @if($lesson->video_type=="Youtube")
+                                    <ul id="ulActive">
                                     <a class="venobox" data-autoplay="true" data-vbtype="video" href="{{ $lesson->youtube_url }}" data-gall="enrollGallery">
-                                        <strong><i  class="fas fa-play-circle" title="Play"></i></strong> {{$lesson->lesson_title}}
-                                      </a>                             
+                                        <strong><i  class="fas fa-play-circle" title="Play"></i></strong> <strong>{{$lesson->lesson_title}}</strong>
+                                      </a>  
+                                    </ul>                           
                                       @else
+                                      <ul id="ulActive">
                                       <a class="video-play1" data-video-id="{{ $lesson->vimeo_id }}" data-channel="vimeo" href="#">
-                                        <strong><i  class="fas fa-play-circle" title="Play"></i></strong> {{$lesson->lesson_title}}
+                                        <strong><i  class="fas fa-play-circle" title="Play"></i></strong> {{$lesson->lesson_title}}</strong>
                                     </a>
+                                      </ul>
+                                  
                                       @endif
-                                      <br>
-                                    @if($lesson->files)
-                                    <i class="fas fa-file-pdf" style="color: red"></i> <a href="{{asset("storage/courses/admin/courses/files/$lesson->files")}}" target="_blank" title="{{$lesson->lesson_title}} File">{{$lesson->lesson_title}} File</a>
-                                    @else
-                                    @endif
+                                      @if($lesson->files)
+                                      <i class="fas fa-file-pdf" style="color: red"></i> <a href="{{asset("storage/courses/admin/courses/files/$lesson->files")}}" target="_blank" title="{{$lesson->lesson_title}} File">{{$lesson->lesson_title}} File</a>
+                                      @else
+                                      @endif
+                                      <br> 
+                            
                                 </ul>
                             @endforeach
                         @endif
@@ -93,7 +108,8 @@
             </div>
         </div>
     </div>
-                                    @endforeach
+                                  
+    @endforeach
                                 @endif
                             </div>
                         </div>
@@ -312,7 +328,7 @@
 </div>
 </div>
 @push('scripts')
-<script src="https://player.vimeo.com/api/player.js"></script>
+{{-- <script src="https://player.vimeo.com/api/player.js"></script>
 
 <script>
 var player;
@@ -409,9 +425,9 @@ player.loadVideo(item).then(() => {
 
 // do something with `item`
 });
-}
+} --}}
 
-// Switch to the video when a thumbnail is clicked
+{{-- // Switch to the video when a thumbnail is clicked
 /*$('#thumbskk a').click(function (event) {
 event.preventDefault();
 var vimeoid = $(this).attr('id');
@@ -424,27 +440,35 @@ player.play();
 
 player.on('ended', playNext);
 
-});*/
+});*/ --}}
 
-function play(clip,type) {
-console.log(type.toLowerCase(),clip);
-if (type.toLowerCase() === 'youtube'){
-var video = document.getElementsByTagName('iframe')[0];
-video.src = clip+'?autoplay=1';
-return false;
-}else{
-player.loadVideo(clip)
+{{-- // function play(clip,type) {
+// console.log(type.toLowerCase(),clip);
+// if (type.toLowerCase() === 'youtube'){
+// var video = document.getElementsByTagName('iframe')[0];
+// video.src = clip+'?autoplay=1';
+// return false;
+// }else{
+// player.loadVideo(clip)
 
-player.on('loaded', function () {
-    player.play();
+// player.on('loaded', function () {
+//     player.play();
+// });
+
+// player.on('ended', playNext);
+// }
+
+// }
+
+// </script> --}}
+{{-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> --}}
+<script>
+    $(document).ready(function(){
+    $('#ulActive a').click(function(){
+    $('#ulActive a').removeClass("active")
+        $(this).toggleClass("active");
+    });
 });
-
-player.on('ended', playNext);
-}
-
-}
-
 </script>
-
 @endpush
 @endsection
